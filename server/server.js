@@ -1,10 +1,10 @@
 import express from "express";
-import fs from 'fs';
+import {readdirSync} from 'fs';
 
 const app = express();
 
 //route middleware
-fs.readdirSync('./routes').map((r) => 
+readdirSync('./routes').map((r) => 
 app.use('/api', require(`./routes/${r}`))
 );
 
