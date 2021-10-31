@@ -1,14 +1,16 @@
 import {useState} from 'react';
 import RegisterForm from '../components/RegisterForm';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
-const Register = () => {
+
+const Register = ({history}) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    
 
     const handleSubmit = async (e) => {
         // prevent the page from reloading when submit is clicked
@@ -22,6 +24,7 @@ const Register = () => {
                 });
                 console.log('REGISTER USER ====>', res)
                 toast.success('Registration successful. Please login');
+                history.push("/login");
         } catch (err){
             console.log(err);
            if(err.response.status === 400) toast.error(err.response.data);
@@ -36,7 +39,7 @@ const Register = () => {
              <h1>Register</h1>
         </div>
 
-        <ToastContainer position="top-center"/>
+       
 
         <div className="container">
            <div className="row">
