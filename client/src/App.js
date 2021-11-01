@@ -1,5 +1,5 @@
 //import pages created into App.js
-//then based on path, show each component using reat-router components
+//then based on path, show each component using react-router components
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Home from './booking/Home';

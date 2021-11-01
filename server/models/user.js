@@ -29,7 +29,7 @@ const userSchema = new Schema ({
 }, {timestamps: true})
 
 
-//use 'pre' middleware, it should use a regular function, not an arrow function
+//use 'pre' middleware to check if user is modified and hash password, it should use a regular function, not an arrow function
 
 userSchema.pre('save', function (next){
     let user = this;
