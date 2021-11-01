@@ -17,21 +17,21 @@ const Register = ({history}) => {
         e.preventDefault()
         // console.table({name, email, password})
         try{
-            const res = await axios.post(`http://localhost:8000/api/register`, {
+            let res =  await axios.post(`${process.env.REACT_APP_API}/register`, {
                 name,
-                 email,
-                  password
+                email,
+                password,
                 });
                 console.log('REGISTER USER ====>', res)
                 toast.success('Registration successful. Please login');
                 history.push("/login");
-        } catch (err){
-            console.log(err);
-           if(err.response.status === 400) toast.error(err.response.data);
-        }
+        } catch (err) {
+          console.log(err);
+           if (err.response.status === 400) toast.error(err.response.data);            
+         }
         
     };
-
+    
     
     return (
         <>
