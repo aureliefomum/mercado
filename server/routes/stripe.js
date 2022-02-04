@@ -4,7 +4,7 @@ const router = express.Router();
 //controllers
 import { createConnectAccount } from "../controllers/stripe";
 
-//middlewares
+//import middleware
 import { requireSignin } from "../middlewares";
 
 router.post("/create-connect-account", requireSignin, createConnectAccount);
